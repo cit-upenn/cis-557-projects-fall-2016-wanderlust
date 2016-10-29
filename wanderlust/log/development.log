@@ -9748,3 +9748,44 @@ ActionController::RoutingError (No route matches [GET] "/users"):
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
   Rendered /Library/Ruby/Gems/2.0.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (25.5ms)
+
+
+Started POST "/users" for ::1 at 2016-10-29 18:17:11 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zQ0AWFsjuw0pY7gF6nUl09CSDLAx/rQlDcOQG8HYHNbXmshPFP0NgAmlyl4kL4+Zabfn2/vsRHq+VZSiJNmSnw==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 95ms (Views: 24.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/tourism.jpg" for ::1 at 2016-10-29 18:17:11 -0400
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-29 18:41:57 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (8.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 34ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-29 18:43:46 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RDTrzchLeCFUcDFmmSwg0zikeCiGmv51cqPd9mSzNi1eoyPah5XOrHS2Qz1XdoqZgYGTQ0yIDirBNdlPgbK4ZA==", "user"=>{"email"=>"asd@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "asd@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2016-10-29 20:49:06.903254"], ["current_sign_in_at", "2016-10-29 22:43:47.022450"], ["sign_in_count", 3], ["updated_at", "2016-10-29 22:43:47.023618"], ["id", 2]]
+  [1m[35m (2.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 77ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2016-10-29 18:43:47 -0400
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Processing by PlansController#new as HTML
+  Rendered plans/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 17ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/tourism.jpg" for ::1 at 2016-10-29 18:43:47 -0400
