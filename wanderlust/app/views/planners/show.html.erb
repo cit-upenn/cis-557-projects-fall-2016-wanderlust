@@ -1,0 +1,19 @@
+@planner.data
+
+<tbody>   
+	<p>
+		<strong>Title:</strong>
+		<%= @planner.location %>
+	</p>
+
+	<p>
+		<strong>Text:</strong>
+		<%= @planner.miles %>
+	</p>
+	<li><%= @planner.forecast["current_observation"]["icon"] %></li>
+	<li><%= @planner.data["current_observation"]["weather"] %></li>
+	<li><%= @planner.data["current_observation"]["weather"] %></li>
+	<%= image_tag @planner.data["current_observation"]["icon_url"] %>
+	
+
+</tbody>   

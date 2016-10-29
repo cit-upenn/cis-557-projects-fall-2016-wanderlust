@@ -1,0 +1,41 @@
+<%if user_signed_in? %>
+<li><%link_to "Logout", destroy_user_session_path %></li>
+<% else %>
+<li>"login" </li>
+<% end %>
+
+<h1>We help you from packing your bag to travel.</h1>
+<%= form_for :planner, url: planners_path do |f| %>
+
+<% if @planner.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@planner.errors.count, "error") %> prohibited
+    this article from being saved:
+  </h2>
+  <ul>
+    <% @planner.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<p>
+  <%= f.label :"Please enter your location: City" %><br>
+  <%= f.text_field :city, placeholder: "e.g. Philadelphia" %>
+</p>
+<p>
+  <%= f.label :"Please enter your location: State" %><br>
+  <%= f.text_field :state, placeholder: "e.g. PA" %>
+</p>
+
+<p>
+  <%= f.label :"How far are you willing to travel ?" %><br>
+  <%= f.text_field :miles, placeholder: "e.g. Distance in nautical miles" %>
+</p>
+
+<p>
+  <%= f.submit "Submit"%>
+</p>
+<% end %>

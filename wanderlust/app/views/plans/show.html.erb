@@ -1,0 +1,22 @@
+<tbody> 
+	
+	<% @plan.forecast = @plan.data %>
+	<% if @plan.forecast.has_key? "current_observation" %>
+
+	<p>
+		<strong><%= @plan.city %>, <%= @plan.state %></strong>
+
+	</p>
+
+	<li><%= @plan.forecast["current_observation"]["weather"] %></li>
+	<%= image_tag @plan.forecast["current_observation"]["icon_url"] %>
+	<% else %>
+	<li>Invalid Input</li>
+	<% end %>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<%= link_to 'Search Again', new_plan_path %>
+</tbody>   
