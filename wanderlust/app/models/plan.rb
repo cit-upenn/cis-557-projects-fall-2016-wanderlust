@@ -25,7 +25,7 @@ class Plan
   	end
 
   	def data
-  		w_api = Wunderground.new("16fe19f7186ebdb3")
+  		w_api = Wunderground.new("PLEASE ENTER YOUR KEY")
   		@state = @state.strip
   		@city = @city.strip
   		#@forecast = w_api.conditions_for("pa","philadelphia")
