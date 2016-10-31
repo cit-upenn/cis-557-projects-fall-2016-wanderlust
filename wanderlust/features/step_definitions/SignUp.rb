@@ -31,3 +31,14 @@ end
 Then (/^I can't create an user without password$/) do
 	assert page.has_content?("Password can't be blank")
 end
+
+When (/^I add a new user where password fields do not match$/) do
+	fill_in 'Email', :with => "animeshm@seas.upenn.edu"
+	fill_in 'Password', :with => "qwertyuiop"
+	fill_in 'Password confirmation', :with => "1234567890"
+	click_button "Sign up"
+end
+
+Then (/^I can't create an user without fields matching$/) do
+	assert page.has_content?("Password confirmation doesn't match Password")
+end

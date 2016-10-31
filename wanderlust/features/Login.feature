@@ -11,7 +11,14 @@ Feature: User in the sign in page
 
 	Scenario: User sign out
 		Given I have set up the user database
+			And I am in the user sign in page
 			And I sign in with username and password
 			And I'm in the user homepage
-		When click the sign out
-		Then I should be able to sign out and see sign in and sign up link in the page
+		When I click the sign out
+		Then I should be able to sign out and see login and sign up link in the page
+
+	Scenario: Invalid username or password
+		Given I have set up the user database
+			And I am in the user sign in page
+		When I enter incorrect email or password
+		Then I can not sign in
