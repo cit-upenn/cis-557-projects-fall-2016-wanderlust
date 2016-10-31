@@ -10986,3 +10986,112 @@ Completed 200 OK in 831ms (Views: 830.1ms | ActiveRecord: 0.1ms)
 
 
 Started GET "/assets/tourism.jpg" for ::1 at 2016-10-31 00:43:36 -0400
+
+
+Started GET "/users/sign_up" for ::1 at 2016-10-31 09:27:28 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (5.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 444ms (Views: 409.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/planners.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-10-31 09:27:28 -0400
+
+
+Started GET "/assets/plans.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-10-31 09:27:28 -0400
+
+
+Started GET "/assets/welcome.self-917b023dcc9aaa2e8762c36fc475c2f021449a9bf03f154f2037e5a985b434e4.css?body=1" for ::1 at 2016-10-31 09:27:29 -0400
+
+
+Started GET "/assets/planners.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-31 09:27:29 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-10-31 09:27:29 -0400
+
+
+Started GET "/assets/plans.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-31 09:27:29 -0400
+
+
+Started GET "/assets/tourism.jpg" for ::1 at 2016-10-31 09:27:29 -0400
+
+
+Started POST "/users" for ::1 at 2016-10-31 09:27:51 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"E6+PxVUkE48zYuwzCY0aIliZb+5QzWbzhIB+Q0l+pU4MAihCi3p1/e1tpgj2coKY4SH4/p0Pd4q4NTIAAdWyeQ==", "user"=>{"email"=>"asd@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'asd@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 116ms (Views: 23.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/tourism.jpg" for ::1 at 2016-10-31 09:27:51 -0400
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-31 09:28:02 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (17.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (37.3ms)
+Completed 200 OK in 63ms (Views: 61.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-31 09:28:13 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"45jXFFyGprDZZ8Vqx0T1j1kmvQnetgHz3FxwTZ/gcoH8NXCTgtjAwgdoj1E4u2014J4qGRN0EIrg6TwO10tltg==", "user"=>{"email"=>"asd@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "asd@gmail.com"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2016-10-29 22:43:47.022450"], ["current_sign_in_at", "2016-10-31 13:28:13.611834"], ["sign_in_count", 4], ["updated_at", "2016-10-31 13:28:13.613047"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 82ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for ::1 at 2016-10-31 09:28:13 -0400
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Processing by PlansController#new as HTML
+  Rendered plans/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/tourism.jpg" for ::1 at 2016-10-31 09:28:13 -0400
+
+
+Started POST "/plans" for ::1 at 2016-10-31 09:28:22 -0400
+Processing by PlansController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MIPPRFrUdVMxHXPWXVPCDKPiecPpdp+z3s8Dn4XIDwzxdjNmd0t3IGaqyZ0evDG0blmzzRN/MeQClUOOFxlblQ==", "plan"=>{"city"=>"Delhi", "state"=>"India", "miles"=>"20"}, "commit"=>"Submit"}
+  Rendered plans/show.html.erb within layouts/application (504.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+Completed 200 OK in 522ms (Views: 520.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/tourism.jpg" for ::1 at 2016-10-31 09:28:23 -0400
+
+
+Started GET "/plans/new" for ::1 at 2016-10-31 09:28:58 -0400
+Processing by PlansController#new as HTML
+  Rendered plans/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+Completed 200 OK in 27ms (Views: 25.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-10-31 09:29:01 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0RrRaNWVrHKuM4xdrvDYxAALdhB7r3cV1wCKQR8E6KEQ7y1K+AquAfmENhbtHyt8zbC8HoGm2UILWspQjdW8OA=="}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2016-10-31 09:29:01 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (2.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/tourism.jpg" for ::1 at 2016-10-31 09:29:01 -0400

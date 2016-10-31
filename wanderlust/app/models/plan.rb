@@ -28,8 +28,6 @@ class Plan
   		w_api = Wunderground.new("e297fd8799458bf8")
   		@state = @state.strip
   		@city = @city.strip
-  		#@forecast = w_api.conditions_for("pa","philadelphia")
-  		#@forecast = w_api.conditions_for(@state, @city)
   		return w_api.conditions_for(@state, @city)
   	end
 
