@@ -1,4 +1,4 @@
-class Plan 
+class Plan
   include ActiveModel::Validations
   include ActiveModel::Conversion
     extend ActiveModel::Naming
@@ -27,7 +27,7 @@ class Plan
   end
 
   def data
-      w_api = Wunderground.new("[Wunderground key]")
+      w_api = Wunderground.new("16fe19f7186ebdb3")
       @state = @state.strip
       @city = @city.strip
       return w_api.conditions_for(@state, @city)
@@ -38,7 +38,7 @@ class Plan
     #   config.consumer_key = "YxyK8voSlq8Ow45sgOY_Ng"
     #   config.consumer_secret = "t6s50K7dG6j7JIO-BvJA6nGAF7A"
     #   config.token = "rmRh1Z-YOXgy5MMauGEy5Im74eP3BRGU"
-    #   config.token_secret = "CNzTV8vJe4GZb75gGJ0iPEBKe3k" 
+    #   config.token_secret = "CNzTV8vJe4GZb75gGJ0iPEBKe3k"
     # end
 
     dist  = @miles.to_f * 1609.34
@@ -54,7 +54,7 @@ class Plan
         sort: 2,
         actionlinks: 'true',
         radius_filter:  dist
-                   
+
       }
 
       locale = { lang: 'en' }
@@ -75,9 +75,9 @@ class Plan
         # puts response.businesses[0].snippet_text
         # puts response.businesses[0].reservation_url
         # puts response.businesses[0].eat24_url
-      rescue  
-        response  = "" 
-      end  
+      rescue
+        response  = ""
+      end
       return response
     end
 
@@ -86,23 +86,24 @@ class Plan
   end
 
   def places_to_visit (lat, long)
-    client = GooglePlaces::Client.new("[Google API key]")
-    dist  = @miles.to_f * 1609.34
-    response = client.spots(lat, long, :radius => dist, :types => ['park', 'museum', 'amusement_park', 'aquarium', 'art_gallery', 'bowling_alley', 'bus_station', 'car_rental', 'city_hall', 'casino', 'embassy', 'gas_station', 'movie_theater', 'night_club', 'spa', 'zoo'])
-    detailed_response = Array.new
-    google_places_hash = Hash.new
-    if !response.blank? then
-      response.each do |place|
-        spot = client.spot(place.reference)
-        detailed_response.push(spot)
-        # google_places_hash[place.name] = {:lat => place.lat, :long => place.lng}
-      end
-    end
-    # detailed_response = client.spot(response[0].reference)
-    # return_value = Hash.new
-    # return_value['places'] = detailed_response
-    # return_value['hash'] = google_places_hash
-    return detailed_response
+    # client = GooglePlaces::Client.new("[Google API key]")
+    # dist  = @miles.to_f * 1609.34
+    # response = client.spots(lat, long, :radius => dist, :types => ['park', 'museum', 'amusement_park', 'aquarium', 'art_gallery', 'bowling_alley', 'bus_station', 'car_rental', 'city_hall', 'casino', 'embassy', 'gas_station', 'movie_theater', 'night_club', 'spa', 'zoo'])
+    # detailed_response = Array.new
+    # google_places_hash = Hash.new
+    # if !response.blank? then
+    #   response.each do |place|
+    #     spot = client.spot(place.reference)
+    #     detailed_response.push(spot)
+    #     # google_places_hash[place.name] = {:lat => place.lat, :long => place.lng}
+    #   end
+    # end
+    # # detailed_response = client.spot(response[0].reference)
+    # # return_value = Hash.new
+    # # return_value['places'] = detailed_response
+    # # return_value['hash'] = google_places_hash
+    # return detailed_response
+    return Array.new
   end
 
 end

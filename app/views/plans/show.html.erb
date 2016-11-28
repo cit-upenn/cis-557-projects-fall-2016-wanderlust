@@ -4,7 +4,7 @@
 
 <tbody>
 
-  
+
   <% if @plan.forecast.has_key? "current_observation" %>
 
   <p>
@@ -20,8 +20,8 @@
   <% if Weather.exists?(:icon => @plan.forecast["current_observation"]["icon"])%>
   <%=  Weather.where(["icon = ?", @plan.forecast["current_observation"]["icon"]]).first.advice %>
   <% end %>
-  
-  <% lat  =  @plan.forecast["current_observation"]["display_location"]["latitude"] 
+
+  <% lat  =  @plan.forecast["current_observation"]["display_location"]["latitude"]
     long =  @plan.forecast["current_observation"]["display_location"]["longitude"]
     dining_places = @plan.restaurants(lat, long)
     places_to_visit = @plan.places_to_visit(lat, long)
@@ -119,26 +119,29 @@ function createSidebar(json_array){
   });
 };
 
-
+<% if @plan.forecast.has_key? "current_observation" %>
 var json_array = [
     { lat: <%= @plan.forecast["current_observation"]["display_location"]["latitude"].to_f %>, lng: <%= @plan.forecast["current_observation"]["display_location"]["longitude"].to_f %>, name: <%=  @plan.forecast["current_observation"]["display_location"]["full"].inspect.html_safe %> , infowindow: <%=  @plan.forecast["current_observation"]["display_location"]["full"].inspect.html_safe %> }
   ];
-
+<% end %>
+<% if !food_location.blank? then%>
 <% food_location.each do |name, loc| %>
 
-json_array.push({ lat: <%=  loc.split(",")[0].to_f %>, lng: <%=  loc.split(",")[1].to_f %>, name: <%=  name.inspect.html_safe %>, infowindow:  <%=  name.inspect.html_safe %>})  
-       
+json_array.push({ lat: <%=  loc.split(",")[0].to_f %>, lng: <%=  loc.split(",")[1].to_f %>, name: <%=  name.inspect.html_safe %>, infowindow:  <%=  name.inspect.html_safe %>})
+
+<% end %>
 <% end %>
 
+<% if !place_location.blank? then%>
 <% place_location.each do |name, loc| %>
 
-json_array.push({ lat: <%=  loc.split(",")[0].to_f %>, lng: <%=  loc.split(",")[1].to_f %>, name: <%=  name.inspect.html_safe %>, infowindow:  <%=  name.inspect.html_safe %>})  
-       
-<% end %>
+json_array.push({ lat: <%=  loc.split(",")[0].to_f %>, lng: <%=  loc.split(",")[1].to_f %>, name: <%=  name.inspect.html_safe %>, infowindow:  <%=  name.inspect.html_safe %>})
 
+<% end %>
+<% end %>
 handler = Gmaps.build('Google');
 handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
-  
+
     var markers = handler.addMarkers(json_array);
 
   _.each(json_array, function(json, index){

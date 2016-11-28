@@ -32,7 +32,7 @@ When (/^I enter the travel radius greater than 50$/) do
 end
 
 Then (/^I should get an error related to number of miles$/) do
-	assert page.has_content?('Miles must be less than or equal to 25')
+	assert page.has_content?('Miles must be less than or equal to 50')
 end
 
 When (/^I leave the number of miles blank$/) do

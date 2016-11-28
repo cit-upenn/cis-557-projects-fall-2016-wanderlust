@@ -29,16 +29,6 @@ Then (/^I should be able to view some restaurants nearby$/) do
 	assert page.has_xpath?("//*[contains(.,\"Review\")]")
 end
 
-When (/^I enter valid combination of city and state name within USA but miles more than 25$/) do
-	fill_in "plan[city]", :with => "Philadelphia"
-	fill_in "plan[state]", :with => "PA"
-	fill_in "plan[miles]", :with => "35"
-	click_button "Submit"
-end
-
-Then (/^I should get a message saying unable to suggest restaurants$/) do
-	assert page.has_content?("Unable to suggest restaurants")
-end
 
 When (/^I enter combination of city and state name that does not exist or is outside USA$/) do
 	fill_in "plan[city]", :with => "Delhi"
