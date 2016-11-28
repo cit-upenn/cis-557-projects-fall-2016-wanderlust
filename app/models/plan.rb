@@ -86,7 +86,7 @@ class Plan
   end
 
   def places_to_visit (lat, long)
-    client = GooglePlaces::Client.new("[Google API key]")
+    client = GooglePlaces::Client.new("AIzaSyA9kY5hFCi9vAYOfbR3GhmNZIp4YEXa4OQ")
 
     dist  = @miles.to_f * 1609.34
     response = client.spots(lat, long, :radius => dist, :types => ['park', 'museum', 'amusement_park', 'aquarium', 'art_gallery', 'bowling_alley', 'bus_station', 'car_rental', 'city_hall', 'casino', 'embassy', 'gas_station', 'movie_theater', 'night_club', 'spa', 'zoo'])
