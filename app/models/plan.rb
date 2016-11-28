@@ -86,24 +86,25 @@ class Plan
   end
 
   def places_to_visit (lat, long)
-    # client = GooglePlaces::Client.new("[Google API key]")
-    # dist  = @miles.to_f * 1609.34
-    # response = client.spots(lat, long, :radius => dist, :types => ['park', 'museum', 'amusement_park', 'aquarium', 'art_gallery', 'bowling_alley', 'bus_station', 'car_rental', 'city_hall', 'casino', 'embassy', 'gas_station', 'movie_theater', 'night_club', 'spa', 'zoo'])
-    # detailed_response = Array.new
-    # google_places_hash = Hash.new
-    # if !response.blank? then
-    #   response.each do |place|
-    #     spot = client.spot(place.reference)
-    #     detailed_response.push(spot)
-    #     # google_places_hash[place.name] = {:lat => place.lat, :long => place.lng}
-    #   end
-    # end
-    # # detailed_response = client.spot(response[0].reference)
-    # # return_value = Hash.new
-    # # return_value['places'] = detailed_response
-    # # return_value['hash'] = google_places_hash
-    # return detailed_response
-    return Array.new
+    client = GooglePlaces::Client.new("[Google API key]")
+
+    dist  = @miles.to_f * 1609.34
+    response = client.spots(lat, long, :radius => dist, :types => ['park', 'museum', 'amusement_park', 'aquarium', 'art_gallery', 'bowling_alley', 'bus_station', 'car_rental', 'city_hall', 'casino', 'embassy', 'gas_station', 'movie_theater', 'night_club', 'spa', 'zoo'])
+    detailed_response = Array.new
+    google_places_hash = Hash.new
+    if !response.blank? then
+      response.each do |place|
+        spot = client.spot(place.reference)
+        detailed_response.push(spot)
+        # google_places_hash[place.name] = {:lat => place.lat, :long => place.lng}
+      end
+    end
+    # detailed_response = client.spot(response[0].reference)
+    # return_value = Hash.new
+    # return_value['places'] = detailed_response
+    # return_value['hash'] = google_places_hash
+    return detailed_response
+    # return Array.new
   end
 
 end

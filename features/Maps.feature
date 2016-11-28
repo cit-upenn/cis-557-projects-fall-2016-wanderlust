@@ -1,4 +1,4 @@
-Feature: Display suggested locations on map
+Feature: Display certain locations on the map
 		As a registered user
 		I must see the suggested locations on the map
 
