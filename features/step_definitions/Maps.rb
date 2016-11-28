@@ -27,5 +27,5 @@ Then(/^I should see atleast one pin on the map$/) do
 end
 
 Then (/^I should be able to see location description below the map$/) do
-	assert page.has_xpath?("//*[contains(.,\"Location 1\")]")
+	assert page.has_xpath?("//*[contains(.,\"Philadelphia, PA\")]")
 end
