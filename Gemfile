@@ -43,6 +43,7 @@ gem 'google_places'
 # gem 'capistrano-rails', group: :development
 
 gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 group :production do 
   gem 'pg'
