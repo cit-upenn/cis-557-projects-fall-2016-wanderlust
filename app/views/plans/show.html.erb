@@ -1,0 +1,200 @@
+<script src="//maps.google.com/maps/api/js?key=AIzaSyBuAI3mBHp2bs8R_ydUGD_Z91SqB-kGkpg"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes <% @plan.forecast = @plan.data %> -->
+
+<tbody>
+
+<% if @plan.forecast.has_key? "current_observation" %>
+  <% lat  =  @plan.forecast["current_observation"]["display_location"]["latitude"]
+    long =  @plan.forecast["current_observation"]["display_location"]["longitude"]
+    dining_places = @plan.restaurants(lat, long)
+    places_to_visit = @plan.places_to_visit(lat, long)
+    food_location = Hash.new()
+    place_location = Hash.new()
+  %>
+  <div class="tab-content">
+    <div id="weather" class="tab-pane fade in active">
+      <div class="container">
+        <div class="row">
+          <div align="center" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3">
+            <h3><%= content_tag(:a, @plan.forecast["current_observation"]["display_location"]["full"], href: @plan.forecast["current_observation"]["forecast_url"]) %></h3>
+            <strong>Temperature: </strong><%= @plan.forecast["current_observation"]["temperature_string"] %><br>
+            <strong>Forecast: </strong><%= @plan.forecast["current_observation"]["weather"] %><br>
+            <strong>Feels like: </strong><%= @plan.forecast["current_observation"]["feelslike_string"] %><br>
+            <strong>Wind Conditions: </strong><%= @plan.forecast["current_observation"]["wind_mph"].to_s + ' mph' %><br>
+            
+            <%= image_tag @plan.forecast["current_observation"]["icon_url"] %>
+            <% @weather = Weather.where(["icon = ?", @plan.forecast["current_observation"]["icon"]]).first %>
+
+            <% if Weather.exists?(:icon => @plan.forecast["current_observation"]["icon"])%>
+              <h4><%=  Weather.where(["icon = ?", @plan.forecast["current_observation"]["icon"]]).first.advice %></h4>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="places" class="tab-pane fade">
+      <div class="container">
+        <% if !places_to_visit.blank? then %>
+          <h3>Places nearby</h3>
+          <%  places_to_visit.each_with_index do |place, index| %>
+            <div style="margin-bottom: 42px">
+              <h4><%= index+1 %>. &nbsp; <%= content_tag(:a, place.name, href: place.website) %></h4>
+              <% if !place.photos[0].blank? then%>
+                <div style="float: left; margin-right: 12px;">
+                  <img src="<%=place.photos[0].fetch_url(800)%>" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                </div>
+              <% end%>
+            
+              <% if !place.lat.blank? and !place.lng.blank? then%>
+                <% place_location[place.name] = place.lat.to_s + "," + place.lng.to_s%>
+              <% end %>
+
+              <% if !place.formatted_phone_number.blank? then %>
+                <strong>Contact: </strong><%= place.formatted_phone_number %><br>
+              <% end %>
+              <% if !place.formatted_address.blank? then %>
+                <strong>Address: </strong><%= place.formatted_address %><br>
+              <% end %>
+              <% if !place.rating.blank? then %>
+                <strong>Rating: </strong><%= place.rating %><br>
+              <% end %>
+              <% if !place.reviews.blank? %>
+                <h5>Reviews: </h5>
+                <% place.reviews.each do |review| %>
+                  <% if !review.author_name.blank? && !review.text.blank? %>
+                    <strong><%= review.author_name %>:</strong> &nbsp; <%= review.text %><br>
+                  <% end %>  
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="container" align="center">
+            <h3>No places could be returned. Location entered does not seem valid.</h3>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id="restaurants" class="tab-pane fade">
+      <div class="container">
+        <% if !dining_places.blank? then %>
+          <h3>Restaurants nearby</h3>
+          <%  dining_places.businesses.each_with_index do |place, index| %>
+            <div style="margin-bottom: 42px">
+              <h4><%= index+1 %>. &nbsp; <%= content_tag(:a, place.name, href: place.url) %></h4>
+              <% if !place.image_url.blank? then%>
+                
+                  <img src="<%=place.image_url%>" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                
+              <% end%><br>
+            
+              <% if !place.location.coordinate.latitude.blank? and !place.location.coordinate.longitude.blank? then%>
+                <% food_location[place.name] = place.location.coordinate.latitude.to_s + "," + place.location.coordinate.longitude.to_s%>
+              <% end %>
+
+              <% if !place.reservation_url.blank? then %>
+                <strong>Reservations: </strong><%= place.reservation_url %><br>
+              <% end %>
+              <% if !place.eat24_url.blank? then %>
+                <strong>eat24 URL: </strong><%= place.eat24_url %><br>
+              <% end %>
+              <% if !place.snippet_text.blank? %>
+                <strong>Review: </strong><%= place.snippet_text %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="container" align="center">
+            <h3>No restaurants could be returned. Seems like we don't have coverage for this area!</h3>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id="mapped" class="tab-pane fade">
+      <div style='width: 800px;'>
+        <div id="sidebar_builder" style='width: 800px; height: 400px;'>
+        </div>
+      </div>
+      <div id='sidebar_container'>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+<% else %>
+  <li>Invalid Input</li>
+  <li>Clothes to wear can not be displayed: Input Error</li>
+  <% if dining_places.blank? then%>
+    <li>Unable to suggest restaurants</li>
+  <% end %>
+<% end %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row" align="center">
+    <%= link_to 'Search Again', new_plan_path, class: 'btn btn-default'%>
+  </div>
+
+
+
+<script type='text/javascript'>
+function createSidebarLi(json){
+  return ("<li><a>" + json.name + "</a></li>");
+};
+
+function bindLiToMarker($li, marker){
+  $li.on('click', function(){
+    handler.getMap().setZoom(14);
+    marker.setMap(handler.getMap());
+    marker.panTo();
+    google.maps.event.trigger(marker.getServiceObject(), 'click');
+  })
+};
+
+function createSidebar(json_array){
+  _.each(json_array, function(json){
+    var $li = $( createSidebarLi(json) );
+    $li.appendTo('#sidebar_container');
+    bindLiToMarker($li, json.marker);
+  });
+};
+
+<% if @plan.forecast.has_key? "current_observation" %>
+var json_array = [
+    { lat: <%= @plan.forecast["current_observation"]["display_location"]["latitude"].to_f %>, lng: <%= @plan.forecast["current_observation"]["display_location"]["longitude"].to_f %>, name: <%=  @plan.forecast["current_observation"]["display_location"]["full"].inspect.html_safe %> , infowindow: <%=  @plan.forecast["current_observation"]["display_location"]["full"].inspect.html_safe %> }
+  ];
+<% end %>
+<% if !food_location.blank? then%>
+<% food_location.each do |name, loc| %>
+
+json_array.push({ lat: <%=  loc.split(",")[0].to_f %>, lng: <%=  loc.split(",")[1].to_f %>, name: <%=  name.inspect.html_safe %>, infowindow:  <%=  name.inspect.html_safe %>})
+
+<% end %>
+<% end %>
+
+<% if !place_location.blank? then%>
+<% place_location.each do |name, loc| %>
+
+json_array.push({ lat: <%=  loc.split(",")[0].to_f %>, lng: <%=  loc.split(",")[1].to_f %>, name: <%=  name.inspect.html_safe %>, infowindow:  <%=  name.inspect.html_safe %>})
+
+<% end %>
+<% end %>
+handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
+
+    var markers = handler.addMarkers(json_array);
+
+  _.each(json_array, function(json, index){
+    json.marker = markers[index];
+  });
+
+  createSidebar(json_array);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+
+</script>
+</tbody>

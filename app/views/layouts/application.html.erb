@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Wanderlust</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'Wanderlust', new_plan_path, :class => 'navbar-brand' %>
+    </div>
+    <% if params[:action]=="create" && params[:controller]=="plans" %>
+    <ul class="nav nav-tabs" style="display:inline-block; margin-top: 6px; border: transparent">
+      <li class="active"><a data-toggle="tab" href="#weather" style="color: #777">Weather</a></li>
+      <li><a data-toggle="tab" href="#places" style="color: #777">Places</a></li>
+      <li><a data-toggle="tab" href="#restaurants" style="color: #777">Restaurants</a></li>
+      <li><a data-toggle="tab" href="#mapped" style="color: #777">Map</a></li>
+    </ul>
+    <% end %>
+    <ul class="nav navbar-nav navbar-right">
+      <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+      <% if user_signed_in? %>
+		<p class="navbar-text">
+			<span class="glyphicon glyphicon-user"></span>
+			Logged in as <strong><%= current_user.email %></strong>
+		</p>
+		<li>
+			<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+		<li>
+			<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+		</li>
+	  <% else %>
+		<li>
+			<%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+		</li>
+		<li>
+			<span class="glyphicon glyphicon-log-in"></span>
+			<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+		</li>
+		<li>
+			<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+		</li>
+	  <% end %>
+    </ul>
+  </div>
+</nav>
+<% if notice %>
+	<p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+	<p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
