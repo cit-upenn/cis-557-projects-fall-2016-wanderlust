@@ -42,6 +42,7 @@ gem 'google_places'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails_12factor'
 
 group :production do 
   gem 'pg'
