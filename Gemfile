@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'wunderground'
 gem 'yelp'
+gem 'simplecov', :require => false, :group => :test
 gem 'devise'
 gem 'omniauth-facebook'
 # Use jquery as the JavaScript library
@@ -59,4 +60,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
