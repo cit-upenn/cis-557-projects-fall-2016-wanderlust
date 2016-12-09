@@ -111,7 +111,7 @@
         <% end %>
       </div>
     </div>
-    <div id="mapped" class="tab-pane fade">
+    <div id="mapped" class="tab-pane fade" style="display: inline-block;">
       <div style='width: 800px;'>
         <div id="sidebar_builder" style='width: 800px; height: 400px;'>
         </div>
@@ -128,6 +128,9 @@
   <li>Clothes to wear can not be displayed: Input Error</li>
   <% if dining_places.blank? then%>
     <li>Unable to suggest restaurants</li>
+  <% end %>
+  <% if places_to_visit.blank? then%>
+    <li>No places could be returned. Location entered does not seem valid.</li>
   <% end %>
 <% end %>
   <br>

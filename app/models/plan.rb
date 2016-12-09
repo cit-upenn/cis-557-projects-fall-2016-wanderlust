@@ -86,12 +86,17 @@ class Plan
   end
 
   def places_to_visit (lat, long)
-    client = GooglePlaces::Client.new("AIzaSyDWWnecYAnYFWxosxnZmmkc6SVyyCqD7IA")
+    client = GooglePlaces::Client.new("AIzaSyCm1SPLDhPUQLFfUYrypI9lnNvpHIQlUGA")
 
     dist  = @miles.to_f * 1609.34
     response = client.spots(lat, long, :radius => dist, :types => ['church', 'park', 'museum', 'amusement_park', 'aquarium', 'art_gallery', 'bowling_alley', 'city_hall', 'casino', 'zoo'], :exclude => ['spa', 'hospital', 'car_wash', 'car_repair', 'car_rental', 'lodging', 'subway_station', 'train_station', 'transit_station', 'travel_agency', 'taxi_stand', 'bus_station', 'grocery_or_supermarket', 'department_store', 'shoe_store', 'jewelry_store', 'restaurant'])
     detailed_response = Array.new
     if !response.blank? then
+      response.each do |place|
+        if place.rating.blank? then
+          place.rating = 2.5
+        end
+      end
       response.sort_by{|a| a.rating}.reverse
       if response.length > 5
         response[0..4].each do |place|

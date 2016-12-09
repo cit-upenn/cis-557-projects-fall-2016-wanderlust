@@ -38,6 +38,6 @@ When (/^I enter combination of city and state name that does not exist or is out
 end
 
 Then (/^I should not be getting any suggested restaurants$/) do
-	# assert page.has_content?("Review")
-	assert !page.has_xpath?("//*[contains(.,\"Review\")]")
+	assert page.has_content?("No restaurants could be returned.")
+	# assert !page.has_xpath?("//*[contains(.,\"Review\")]")
 end

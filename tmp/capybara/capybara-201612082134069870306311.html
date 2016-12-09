@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Wanderlust</title>
+	<link rel="stylesheet" media="all" href="/assets/application-84abbe2dba8e5b4b0ec0d434e838b9d35a316aeaabcd65b7953eddbf98dd837e.css" data-turbolinks-track="true" />
+	<script src="/assets/application-8f94e8c8be0ea91bcc82c213ae30684756684a15e67df10293f7c18d77978921.js" data-turbolinks-track="true"></script>
+	
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/plans/new">Wanderlust</a>
+    </div>
+    <ul class="nav nav-tabs" style="display:inline-block; margin-top: 6px; border: transparent">
+      <li class="active"><a data-toggle="tab" href="#weather" style="color: #777">Weather</a></li>
+      <li><a data-toggle="tab" href="#places" style="color: #777">Places</a></li>
+      <li><a data-toggle="tab" href="#restaurants" style="color: #777">Restaurants</a></li>
+      <li><a data-toggle="tab" href="#mapped" style="color: #777">Map</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+		<p class="navbar-text">
+			<span class="glyphicon glyphicon-user"></span>
+			Logged in as <strong>animeshm@seas.upenn.edu</strong>
+		</p>
+		<li>
+			<a class="navbar-link" href="/users/edit">Edit profile</a></li>
+		<li>
+			<a class="navbar-link" rel="nofollow" data-method="delete" href="/users/sign_out">Logout</a>
+		</li>
+    </ul>
+  </div>
+</nav>
+
+<script src="//maps.google.com/maps/api/js?key=AIzaSyBuAI3mBHp2bs8R_ydUGD_Z91SqB-kGkpg"></script>
+<script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+<script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes  -->
+
+<tbody>
+
+  <div class="tab-content">
+    <div id="weather" class="tab-pane fade in active">
+      <div class="container">
+        <div class="row">
+          <div align="center" class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-offset-3 col-md-offset-3">
+            <h3><a href="http://www.wunderground.com/US/PA/Philadelphia.html">Philadelphia, PA</a></h3>
+            <strong>Temperature: </strong>35.6 F (2.0 C)<br>
+            <strong>Forecast: </strong>Clear<br>
+            <strong>Feels like: </strong>29 F (-2 C)<br>
+            <strong>Wind Conditions: </strong>9.0 mph<br>
+            
+            <img src="http://icons.wxug.com/i/c/k/nt_clear.gif" alt="Nt clear" />
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="places" class="tab-pane fade">
+      <div class="container">
+          <h3>Places nearby</h3>
+            <div style="margin-bottom: 42px">
+              <h4>1. &nbsp; <a href="http://www.phila.gov/parksandrecreation/Pages/default.aspx">JFK Plaza</a></h4>
+                <div style="float: left; margin-right: 12px;">
+                  <img src="https://lh5.googleusercontent.com/-QnCvT63W0Z8/V27RS_p7dPI/AAAAAAAAITs/1BcACeA9sOgeZ6wJhTReoyinSNOD7HOTgCJkC/s1600-w800/" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                </div>
+            
+
+                <strong>Contact: </strong>(215) 683-0246<br>
+                <strong>Address: </strong>John F Kennedy Blvd, Philadelphia, PA 19102, United States<br>
+                <strong>Rating: </strong>4.3<br>
+                <h5>Reviews: </h5>
+                    <strong>Jovanny Ramos:</strong> &nbsp; Currently under construction. Looks to be a cool place to hangout for outdoor lunch break. <br>
+                    <strong>Marc Houston:</strong> &nbsp; Tourist area, but for a reason. Be sure to swing by here and take some pictures, or just enjoy people watching. <br>
+                    <strong>Roman Zhukov:</strong> &nbsp; It&#39;s a Philadelphia&#39;s soul and life, describes the cities architecture, history and and view in the best way possible, if you even going by Philadelphia, it is a must see place for anybody<br>
+                    <strong>Abdullah Almalki:</strong> &nbsp; Great place to visit in a good weather day! Sit and enjoy a cup of coffee! <br>
+                    <strong>William Bigle:</strong> &nbsp; It&#39;s closed right now for renovation but will soon be much nicer<br>
+            </div>
+            <div style="margin-bottom: 42px">
+              <h4>2. &nbsp; <a href="http://www.cathedralphila.org/">Cathedral Basilica of Saints Peter &amp; Paul</a></h4>
+                <div style="float: left; margin-right: 12px;">
+                  <img src="https://lh5.googleusercontent.com/-09A3yAsns5I/V36eEYkRdCI/AAAAAAAABeQ/MIFWhzumOdAbdU1GroPP0t8g5HKAFPA-QCJkC/s1600-w800/" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                </div>
+            
+
+                <strong>Contact: </strong>(215) 561-1313<br>
+                <strong>Address: </strong>1723 Race St, Philadelphia, PA 19103, United States<br>
+                <strong>Rating: </strong>4.7<br>
+                <h5>Reviews: </h5>
+                    <strong>Sharon Polishak:</strong> &nbsp; I recently visited and found it just breathtaking. Very beautiful.<br>
+                    <strong>gerard mclean:</strong> &nbsp; I was just walking the city and bumped into this magnificent structure and decided to walk in. The craftsmanship is tremendous. <br>
+                    <strong>Nick Passakas:</strong> &nbsp; Very beautiful church. Incredible architecture and artwork.<br>
+                    <strong>Daniel Veres:</strong> &nbsp; Stunningly beautiful basilica. Daily masses available during morning and afternoon and Sunday masses offered throughout the day. <br>
+                    <strong>Patr D:</strong> &nbsp; We went for Christmas concert on DEC 13 2015. The cathedral is very beautiful and the arch choir and orchestra sang nice Christmas songs. But organizational part was not good- People were sitting on pews facing the altar listening the whole concert from the back of the cathedral behind their backs. Only in the  mid of the concert the boy and girl choir appeared at the altar to support main arch choir, which brought a lot of confusion to the crowd wondering which part they need to face standing and singing along Christmas carols. Nevertheless the music was beautiful, the orchestra and the choirs did a good job. Next year the program should be thought through  to eliminate the confusions and be more interesting for the audience.  <br>
+            </div>
+            <div style="margin-bottom: 42px">
+              <h4>3. &nbsp; <a href="http://www.barnesfoundation.org/">Barnes Foundation</a></h4>
+                <div style="float: left; margin-right: 12px;">
+                  <img src="https://lh4.googleusercontent.com/-pQ3rUdu4yTE/WBn8vviSOQI/AAAAAAAAAWE/hhLyEJbVlgAKReh0v0WkolFIC16ftclSQCLIB/s1600-w800/" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                </div>
+            
+
+                <strong>Contact: </strong>(215) 278-7200<br>
+                <strong>Address: </strong>2025 Benjamin Franklin Pkwy, Philadelphia, PA 19130, United States<br>
+                <strong>Rating: </strong>4.4<br>
+                <h5>Reviews: </h5>
+                    <strong>Frank Kollman:</strong> &nbsp; This was the first chance I got to visit the museum following its move several years ago from the suburbs in the original Barnes House to museum row across from the Franklin Institute.  I loved the old museum.  The new one is joyless, pretentious, unfriendly, and not worth the trip.  We were required to check our coats, we were not allowed to write in a notebook with a ballpoint pen, and we were scolded several times for getting too close to the line on the floor designed to keep people from getting too close to the paintings.  There were tours going on, which made it impossible to enjoy a couple of the rooms because of the overcrowding.  The tour leaders were jerks if you tried to get a vantage point to look at anything.  You get much better treatment going to quality art museums where the collections are selected by experts, not by a chemist who made his fortune developing an early treatment for gonorrhea.  Sorry for the last snark, but I really felt put out by the treatment today.  Go to Rodin or the Philadelphia Art Museum instead.<br>
+                    <strong>Alexian Taymer:</strong> &nbsp; The replication of the original in the new location is impressive.  The design creates an unexpected architectural experience: it feels very different navigating the rooms inside, compared to how it looks from the outside.  The modern exhibits are a nice counter-point to the permanent collection.  Every time we&#39;ve visited, it&#39;s been an intense deep dive into a few slices of artistic time and place.<br>
+                    <strong>Nick Passakas:</strong> &nbsp; Very unique museum with many great pieces and an interesting layout to each room. The architecture of the building itself is quite impressive and worth checking out.<br>
+                    <strong>Garima Gupta:</strong> &nbsp; Its a bit difficult to reach through public transit but the collection is fantastic and water feature outside is really interesting<br>
+                    <strong>Matt R:</strong> &nbsp; Amazing collection in a wonderful setting. I know there was a lot of controversy regarding relocating this museum into the city but I&#39;m glad they did, personally. I think uber is the best way to get there.<br>
+            </div>
+            <div style="margin-bottom: 42px">
+              <h4>4. &nbsp; <a href="http://www.easternstate.org/">Eastern State Penitentiary</a></h4>
+                <div style="float: left; margin-right: 12px;">
+                  <img src="https://lh4.googleusercontent.com/-VkosCUSYvTM/VhQwn136ZqI/AAAAAAAAAB8/vWWr6gda6RoaoMEVriYoAUHK3mTSavu6wCJkC/s1600-w800/" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                </div>
+            
+
+                <strong>Contact: </strong>(215) 236-3300<br>
+                <strong>Address: </strong>2027 Fairmount Ave, Philadelphia, PA 19130, United States<br>
+                <strong>Rating: </strong>4.5<br>
+                <h5>Reviews: </h5>
+                    <strong>Miz T:</strong> &nbsp; Immediately from the entrance you&#39;re greeted by an awe inspiring facade and two menacing gargoyles and I am absolutely amazed that this structure has stood for so long and still remains in fairly good condition. There were some blocks that were closed for repair/restorative work. However a majority of the Penitentiary was open for exploration and the areas that were open provided about a two hour experience. A remarkable and memorable experience strolling along the same corridors that the prisoners walked also (the best way to experience a penitentiary 😊). The audio and the posters along the self-guided tours were informative and helped to enhance the experience.<br>
+                    <strong>Chris Edwards:</strong> &nbsp; This place is amazing for adults and kids. So much history and so many place s to explore. Bring a camera as there are some great photo ops. Price is really good for what you get. There was a an audio tour included narrated by Steve Bucsemi that walks you alto my a path. Plan at least 3 to 4 hours minimum to tour everything. <br>
+                    <strong>Bryan S:</strong> &nbsp; 10-10!!!  If you are not into art in a conventional way, you must visit the ESP. I can complete a museum or gallery in 15 minutes but was in here for 3 hours listening to the audio tour at will and taking in the atmosphere with lots of camera clicks. I do recommend you arrive as it opens. The less busy the more rewarding. As we were closing our visit the masses who were not giving the prison the attention it deserved were catching, chatting and overtaking us which made the isolated start seem a luxury. <br>
+                    <strong>Sarah Alta:</strong> &nbsp; This place was fascinating! They had wonderful tours, along with self-guided tours. I hope very much to be able to make it to the Halloween presentation at some point. There is a ton of History, and getting to see and touch all of these different pieces of History was incredible. They have many displays of animals and videos about procedures that are fascinating to watch as well. There are few places that are closed off to the public, which naturally nearly killed me with curiosity, but for the most part this is all open and informational to the public. Great trip. I would definitely recommend.<br>
+                    <strong>Audrey C:</strong> &nbsp; They accept out-of-state student id! It&#39;s $10 student price and $14 regular price. Great place to visit. Plan to spend 2-3 hours here with the audio tour (included). The prison cells are mostly the same, but the audio brings it to life.<br>
+            </div>
+            <div style="margin-bottom: 42px">
+              <h4>5. &nbsp; <a href="http://www.moore.edu/">Moore College of Art &amp; Design</a></h4>
+                <div style="float: left; margin-right: 12px;">
+                  <img src="https://lh6.googleusercontent.com/-eiMW0AJHyR0/VulckUQOqgI/AAAAAAAAe1o/7Jp67mABRb0K54iMgXZ19nQreHt4k0mcACJkC/s1600-w800/" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                </div>
+            
+
+                <strong>Contact: </strong>(215) 965-4000<br>
+                <strong>Address: </strong>1916 Race St, Philadelphia, PA 19103, United States<br>
+                <strong>Rating: </strong>4.8<br>
+                <h5>Reviews: </h5>
+                    <strong>Keke Daniels:</strong> &nbsp; 5 stars<br>
+                    <strong>A Google User:</strong> &nbsp; i attended the school in 1966, after I won a citywide elementary school art contest with a drawing of charlie brown and snoopy.  My dad was a janitor at the school, and because of the news coverage, my picture was put in the daily news and i was offered free weekend lessons at the college for 3 months.  Even now, I remember walking down the halls, exploring as young kids do, every open classroom, and being amazed at the paintings, and statues being created.  My dad died before I could complete my studies, but I never forgot my time at Moore.  I&#39;m not a professional artist, but i do draw, sketch and design t-shirts.  Thank you for the time I spent there.... <br>
+            </div>
+      </div>
+    </div>
+    <div id="restaurants" class="tab-pane fade">
+      <div class="container">
+          <h3>Restaurants nearby</h3>
+            <div style="margin-bottom: 42px">
+              <h4>1. &nbsp; <a href="https://www.yelp.com/biz/south-philly-barbacoa-philadelphia?adjust_creative=YxyK8voSlq8Ow45sgOY_Ng&amp;utm_campaign=yelp_api&amp;utm_medium=api_v2_search&amp;utm_source=YxyK8voSlq8Ow45sgOY_Ng">South Philly Barbacoa</a></h4>
+                
+                  <img src="https://s3-media3.fl.yelpcdn.com/bphoto/Nv0LQx_Y74ITjGi1GwyAuQ/ms.jpg" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                
+              <br>
+            
+
+                <strong>Review: </strong>Yes. Just yes. 
+
+I consider myself a sniffer-outer of cheap hole-in-the-wall taco places in Philly. This place doesn&#39;t quite have the same feel as a...
+            </div>
+            <div style="margin-bottom: 42px">
+              <h4>2. &nbsp; <a href="https://www.yelp.com/biz/miss-rachels-pantry-philadelphia?adjust_creative=YxyK8voSlq8Ow45sgOY_Ng&amp;utm_campaign=yelp_api&amp;utm_medium=api_v2_search&amp;utm_source=YxyK8voSlq8Ow45sgOY_Ng">Miss Rachel&#39;s Pantry</a></h4>
+                
+                  <img src="https://s3-media1.fl.yelpcdn.com/bphoto/lkSIJPOShfOJeWel4saFrQ/ms.jpg" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                
+              <br>
+            
+
+                <strong>Review: </strong>Miss Rachel really knows what she&#39;s doing with comfort food. This might be some of the most soulful vegan food I have ever had the pleasure of purchasing....
+            </div>
+            <div style="margin-bottom: 42px">
+              <h4>3. &nbsp; <a href="https://www.yelp.com/biz/cafe-la-maude-philadelphia?adjust_creative=YxyK8voSlq8Ow45sgOY_Ng&amp;utm_campaign=yelp_api&amp;utm_medium=api_v2_search&amp;utm_source=YxyK8voSlq8Ow45sgOY_Ng">Cafe La Maude</a></h4>
+                
+                  <img src="https://s3-media3.fl.yelpcdn.com/bphoto/pDbMMnSGzsuT_Xl3v_9mtw/ms.jpg" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                
+              <br>
+            
+
+                <strong>Review: </strong>Now this place is hubbed right in Northern Liberties and it&#39;s designated for all the folks that enjoy small hipster businesses. Excellent service and one of...
+            </div>
+            <div style="margin-bottom: 42px">
+              <h4>4. &nbsp; <a href="https://www.yelp.com/biz/parada-maimon-philadelphia-2?adjust_creative=YxyK8voSlq8Ow45sgOY_Ng&amp;utm_campaign=yelp_api&amp;utm_medium=api_v2_search&amp;utm_source=YxyK8voSlq8Ow45sgOY_Ng">Parada Maimon</a></h4>
+                
+                  <img src="https://s3-media1.fl.yelpcdn.com/bphoto/rovXsxCXWnZsi1E9PrWSzg/ms.jpg" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                
+              <br>
+            
+
+                <strong>Review: </strong>F I N A L L Y ! A Dominican restaurant in Center City! This place has become a go-to spot whenever I am craving Dominican food but don&#39;t wanna drive back...
+            </div>
+            <div style="margin-bottom: 42px">
+              <h4>5. &nbsp; <a href="https://www.yelp.com/biz/aprons-soul-food-restaurant-philadelphia?adjust_creative=YxyK8voSlq8Ow45sgOY_Ng&amp;utm_campaign=yelp_api&amp;utm_medium=api_v2_search&amp;utm_source=YxyK8voSlq8Ow45sgOY_Ng">Aprons Soul Food Restaurant</a></h4>
+                
+                  <img src="https://s3-media2.fl.yelpcdn.com/bphoto/CmoCDe8kjEpftsaGNLfJFg/ms.jpg" width="200px" height="200px" style="padding: 6px; border-radius: 14px">
+                
+              <br>
+            
+
+                <strong>Review: </strong>Straight up fantastic.
+
+We showed up today, to find a sign &quot;closing early, Saturday, 8/15.&quot; I was with my kid and a friend of his (both 9.) We were sad...
+            </div>
+      </div>
+    </div>
+    <div id="mapped" class="tab-pane fade" style="display: inline-block;">
+      <div style='width: 800px;'>
+        <div id="sidebar_builder" style='width: 800px; height: 400px;'>
+        </div>
+      </div>
+      <div id='sidebar_container'>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row" align="center">
+    <a class="btn btn-default" href="/plans/new">Search Again</a>
+  </div>
+
+
+
+<script type='text/javascript'>
+function createSidebarLi(json){
+  return ("<li><a>" + json.name + "</a></li>");
+};
+
+function bindLiToMarker($li, marker){
+  $li.on('click', function(){
+    handler.getMap().setZoom(14);
+    marker.setMap(handler.getMap());
+    marker.panTo();
+    google.maps.event.trigger(marker.getServiceObject(), 'click');
+  })
+};
+
+function createSidebar(json_array){
+  _.each(json_array, function(json){
+    var $li = $( createSidebarLi(json) );
+    $li.appendTo('#sidebar_container');
+    bindLiToMarker($li, json.marker);
+  });
+};
+
+var json_array = [
+    { lat: 39.95000076, lng: -75.16000366, name: "Philadelphia, PA" , infowindow: "Philadelphia, PA" }
+  ];
+
+json_array.push({ lat: 39.9283979545869, lng: -75.1631928607821, name: "South Philly Barbacoa", infowindow:  "South Philly Barbacoa"})
+
+
+json_array.push({ lat: 39.9265148, lng: -75.1737757, name: "Miss Rachel's Pantry", infowindow:  "Miss Rachel's Pantry"})
+
+
+json_array.push({ lat: 39.963948, lng: -75.144364, name: "Cafe La Maude", infowindow:  "Cafe La Maude"})
+
+
+json_array.push({ lat: 39.9590025430559, lng: -75.1582302558283, name: "Parada Maimon", infowindow:  "Parada Maimon"})
+
+
+json_array.push({ lat: 39.9400521033789, lng: -75.1867334579272, name: "Aprons Soul Food Restaurant", infowindow:  "Aprons Soul Food Restaurant"})
+
+
+
+json_array.push({ lat: 39.95419649999999, lng: -75.16584730000001, name: "JFK Plaza", infowindow:  "JFK Plaza"})
+
+
+json_array.push({ lat: 39.9574751, lng: -75.16859649999999, name: "Cathedral Basilica of Saints Peter & Paul", infowindow:  "Cathedral Basilica of Saints Peter & Paul"})
+
+
+json_array.push({ lat: 39.9606433, lng: -75.17280749999999, name: "Barnes Foundation", infowindow:  "Barnes Foundation"})
+
+
+json_array.push({ lat: 39.9683364, lng: -75.17266479999999, name: "Eastern State Penitentiary", infowindow:  "Eastern State Penitentiary"})
+
+
+json_array.push({ lat: 39.9571923, lng: -75.1720053, name: "Moore College of Art & Design", infowindow:  "Moore College of Art & Design"})
+
+handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'sidebar_builder'}}, function(){
+
+    var markers = handler.addMarkers(json_array);
+
+  _.each(json_array, function(json, index){
+    json.marker = markers[index];
+  });
+
+  createSidebar(json_array);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+
+</script>
+</tbody>
+
+
+</body>
+</html>

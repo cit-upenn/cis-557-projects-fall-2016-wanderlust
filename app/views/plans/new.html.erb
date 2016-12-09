@@ -1,35 +1,46 @@
-<h1>We help you from packing your bag to travel.</h1>
+<body background="http://surfcareers.com/assets/uploads/images/101027_BURKARD_16421.jpg">
 <%= form_for :plan, url: plans_path do |f| %>
 
-  <% if @plan.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@plan.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @plan.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= f.label :"Please enter your location: City" %><br>
-    <%= f.text_field :city, placeholder: "e.g. Philadelphia" %>
-  </p>
-  <p>
-    <%= f.label :"Please enter your location: State" %><br>
-    <%= f.text_field :state, placeholder: "e.g. PA" %>
-  </p>
- 
-  <p>
-    <%= f.label :"How far are you willing to travel ?" %><br>
-    <%= f.text_field :miles, placeholder: "e.g. Distance in miles" %>
-  </p>
- 
-  <p>
-    <%= f.submit "Submit"%>
-  </p>
+<% if @plan.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@plan.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h2>
+    <ul>
+      <% @plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1" style="background-color: #e5e5f9; margin-top: 3%; border-radius: 10px; opacity: 0.9">
+      <div style="margin-top: 24px; margin-bottom: 32px">
+        <h4 style="width: 100%; text-align: center">
+          Have a place in mind? We will tell you everything about it!
+        </h4>
+      </div>
+      <div class="form-group">
+        <%= f.label :"City" %><br>
+        <%= f.text_field :city, placeholder: "Philadelphia", class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"State" %><br>
+        <%= f.text_field :state, placeholder: "PA", class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :"How far are you willing to travel?" %><br>
+        <%= f.text_field :miles, placeholder: "Distance in miles", class: 'form-control' %>
+      </div>
+      <div style="margin-bottom: 24px">
+        <%= f.submit "Submit", class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% end %>
+</body>
