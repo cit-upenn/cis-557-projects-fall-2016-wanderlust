@@ -46,6 +46,8 @@ gem 'autoprefixer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails_12factor'
+gem 'newrelic_rpm'
 
 group :production do
   gem 'pg'
