@@ -38,7 +38,7 @@
         <% if !places_to_visit.blank? then %>
           <h3>Places nearby</h3>
           <%  places_to_visit.each_with_index do |place, index| %>
-            <div style="margin-bottom: 42px">
+            <div style="margin-bottom: 42px; min-height: 200px">
               <h4><%= index+1 %>. &nbsp; <%= content_tag(:a, place.name, href: place.website) %></h4>
               <% if !place.photos[0].blank? then%>
                 <div style="float: left; margin-right: 12px;">
@@ -111,7 +111,7 @@
         <% end %>
       </div>
     </div>
-    <div id="mapped" class="tab-pane fade" style="display: inline-block;">
+    <div id="mapped" class="tab-pane fade" style = "display: inline-block;">
       <div style='width: 800px;'>
         <div id="sidebar_builder" style='width: 800px; height: 400px;'>
         </div>
