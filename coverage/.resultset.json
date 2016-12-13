@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/models/user.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/models/user.rb": [
         1,
         null,
         null,
@@ -39,26 +39,26 @@
         null,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/controllers/application_controller.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/helpers/application_helper.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/helpers/plans_helper.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/helpers/plans_helper.rb": [
         1,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/helpers/welcome_helper.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/helpers/welcome_helper.rb": [
         1,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/controllers/plans_controller.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/controllers/plans_controller.rb": [
         1,
         1,
         null,
@@ -97,7 +97,7 @@
         null,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/models/plan.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/models/plan.rb": [
         1,
         1,
         1,
@@ -222,18 +222,18 @@
         null,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/models/weather.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/models/weather.rb": [
         1,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/controllers/welcome_controller.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/controllers/welcome_controller.rb": [
         1,
         1,
         null,
         null,
         null
       ],
-      "/Users/roy/cis-557-projects-fall-2016-wanderlust-master 2/app/controllers/users/omniauth_callbacks_controller.rb": [
+      "/Users/roy/cis-557-projects-fall-2016-wanderlust/app/controllers/users/omniauth_callbacks_controller.rb": [
         1,
         1,
         null,
@@ -254,7 +254,7 @@
         null
       ]
     },
-    "timestamp": 1481254788
+    "timestamp": 1481591484
   },
   "Unknown Test Framework": {
     "coverage": {
